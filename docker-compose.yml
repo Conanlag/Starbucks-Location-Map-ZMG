@@ -3,5 +3,7 @@ services:
     build:
       context: ./starbucks-map
       dockerfile: Dockerfile
-    ports: 
+    env_file:
+      - ./.env
+    ports:
       - "4200:4200"

@@ -62,10 +62,6 @@ cp .env.example .env
 
 Then, edit the `.env` file and add your Google Cloud API credentials and any other required configuration.
 
-Run the command `ng generate environment` in the `/starbucks-map` directory
-```bash
-ng generate environments
-```
 
 ### 2. Retrieve Location Data
 
