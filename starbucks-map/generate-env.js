@@ -9,11 +9,11 @@ export const environment = {
 };
 `;
 
-fs.mkdirSync(path.join(__dirname, "src/environments"), { recursive: true });
+const envDir = path.join(__dirname, "src/environments");
 
-fs.writeFileSync(
-  path.join(__dirname, "src/environments/environment.development.ts"),
-  content
-);
+fs.mkdirSync(envDir, { recursive: true });
 
-console.log("environment.development.ts generated");
+fs.writeFileSync(path.join(envDir, "environment.ts"), content);
+fs.writeFileSync(path.join(envDir, "environment.development.ts"), content);
+
+console.log("Environment files generated");
