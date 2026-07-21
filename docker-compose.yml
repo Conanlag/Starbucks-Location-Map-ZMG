@@ -7,3 +7,6 @@ services:
       - ./.env
     ports:
       - "4200:4200"
+    volumes:
+      - ./starbucks-map:/app
+      - /app/node_modules
