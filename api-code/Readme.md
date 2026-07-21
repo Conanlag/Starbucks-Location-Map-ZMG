@@ -1,17 +1,8 @@
-**Como conseguir acceso a API PLACES (new)**
+# Starbucks Location Map | Mexico (ZMG)
 
+## How to access Google Places (new)
 
-- 1.
-- 2.
-- 3.
-- 4.
-- 5.
-- 6.
-- 7. 
-- 8.
+## Requirements
 
-
-
-
-
-
+* Python 3.10+
+* Google Cloud API Key 
