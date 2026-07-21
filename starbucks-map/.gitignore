@@ -10,7 +10,7 @@
 /node_modules
 npm-debug.log
 yarn-error.log
-
+src/index.html
 # IDEs and editors
 .idea/
 .project
