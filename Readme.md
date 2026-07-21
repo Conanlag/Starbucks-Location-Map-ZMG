@@ -62,6 +62,11 @@ cp .env.example .env
 
 Then, edit the `.env` file and add your Google Cloud API credentials and any other required configuration.
 
+Run the command `ng generate environment` in the `/starbucks-map` directory
+```bash
+ng generate environments
+```
+
 ### 2. Retrieve Location Data
 
 If you want to modify the search location or customize the search parameters used to identify Starbucks stores, navigate to the `api-code` directory and update the configuration in `main.py`.
@@ -81,7 +86,6 @@ The script will generate the following files:
 ### 3. Build and Run the Application
 
 From the project's root directory, start the application with Docker Compose:
-
 ```bash
 docker compose up --build
 ```
