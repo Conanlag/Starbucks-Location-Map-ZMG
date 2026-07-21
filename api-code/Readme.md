@@ -1,0 +1,17 @@
+**Como conseguir acceso a API PLACES (new)**
+
+
+- 1.
+- 2.
+- 3.
+- 4.
+- 5.
+- 6.
+- 7. 
+- 8.
+
+
+
+
+
+
