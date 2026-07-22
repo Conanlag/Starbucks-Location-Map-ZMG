@@ -21,7 +21,6 @@ body {
   padding: 20px;
   height: 100vh;
   overflow-y: auto;
-  flex-shrink: 0;
 
   .store {
     h3,
@@ -67,7 +66,7 @@ body {
 
 
     .map-container{
-        width: 100vw !important;
-        height: 100vh !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 }

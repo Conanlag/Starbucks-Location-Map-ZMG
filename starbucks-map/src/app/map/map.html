@@ -27,7 +27,10 @@
       [position]="{
         lat: store.lat,
         lng: store.lng
-      }"  />
+      }"  
+      [options] = "markerOptions"
+      (mapClick)="changeLocation(store)"
+      />
     }
   </google-map>
 
