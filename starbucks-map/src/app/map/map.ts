@@ -11,8 +11,8 @@ import { GoogleMap } from '@angular/google-maps';
 })
 export class Map {
 
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
+  center: google.maps.LatLngLiteral = {lat: 20.6674465, lng: -103.33896};
+  zoom = 12;
   display!: google.maps.LatLngLiteral;
 
   moveMap(event: google.maps.MapMouseEvent) {
