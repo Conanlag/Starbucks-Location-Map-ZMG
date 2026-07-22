@@ -1,6 +1,7 @@
 import { Component, computed } from '@angular/core';
 import { GoogleMap, MapAdvancedMarker } from '@angular/google-maps';
 import { httpResource } from '@angular/common/http';
+import { environment } from '../../environments/environment.development';
 
 export interface Store { 
 
@@ -38,7 +39,9 @@ export class Map {
     }));
   });
 
-
+  mapOptions: google.maps.MapOptions = { 
+    mapId: environment.googleMapsMapId 
+  }
   center: google.maps.LatLngLiteral = {lat: 20.6674465, lng: -103.33896};
   zoom = 12;
 

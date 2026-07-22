@@ -5,7 +5,8 @@ const path = require("path");
 const envContent = `
 export const environment = {
   production: false,
-  googleMapsApiKey: "${process.env.GOOGLE_MAPS_API_KEY}"
+  googleMapsApiKey: "${process.env.GOOGLE_MAPS_API_KEY}",
+  googleMapsMapId: "${process.env.GOOGLE_MAPS_MAP_ID}",
 };
 `;
 
