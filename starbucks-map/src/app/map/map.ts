@@ -13,14 +13,5 @@ export class Map {
 
   center: google.maps.LatLngLiteral = {lat: 20.6674465, lng: -103.33896};
   zoom = 12;
-  display!: google.maps.LatLngLiteral;
-
-  moveMap(event: google.maps.MapMouseEvent) {
-    this.center = (event.latLng!.toJSON());
-  }
-
-  move(event: google.maps.MapMouseEvent) {
-    this.display = event.latLng!.toJSON();
-  }
 
 }
