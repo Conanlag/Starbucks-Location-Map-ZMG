@@ -1,4 +1,4 @@
-import { Component, computed, viewChild, signal} from '@angular/core';
+import { Component, computed, ElementRef, viewChild, viewChildren, signal} from '@angular/core';
 import { GoogleMap, MapAdvancedMarker } from '@angular/google-maps';
 import { httpResource } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
@@ -56,10 +56,15 @@ export class Map {
   selectedStore = signal<Store | null>(null);
 
   private mapReference = viewChild.required<GoogleMap>(GoogleMap)
+  private storesReference = viewChildren<ElementRef<HTMLDivElement>>('stores');
 
   changeLocation(store: Store) {
     this.selectedStore.set(store);
     this.mapReference().panTo({ lat: store.lat, lng: store.lng});
+
+    const index = this.storesResource.value()?.findIndex(s=> s.id === store.id );
+
+    console.log('index', index);
   }
 
 }

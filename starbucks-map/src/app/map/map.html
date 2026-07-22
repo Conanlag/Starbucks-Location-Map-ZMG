@@ -4,7 +4,7 @@
   <div class="sidebar">
     @for (store of stores(); track store.id) {
       <div
-      
+        #store
         class="store"
         [class.active] ="selectedStore()?.id === store.id"
         (click) = "changeLocation(store)"
