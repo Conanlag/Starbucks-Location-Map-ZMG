@@ -81,6 +81,11 @@ The script will generate the following files:
 
 ### 3. Build and Run the Application
 
+Run the following command on the directory ./starbucks-map:
+```bash
+ng add @angular/google-maps
+```
+
 From the project's root directory, start the application with Docker Compose:
 ```bash
 docker compose up --build
