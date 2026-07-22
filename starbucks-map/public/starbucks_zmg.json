@@ -147,13 +147,6 @@
         "lng": -103.31223899999999
     },
     {
-        "id": "ChIJIWNjYwCtKIQRQjT5oV4KePk",
-        "name": "Restaurant and Pajaretes The Cerritos: Mexican Starbucks",
-        "address": "Av. Adolf Bernard Horn Junior 532, Tlaquepaque, 45610 San Pedro Tlaquepaque, Jal., Mexico",
-        "lat": 20.5814213,
-        "lng": -103.3619087
-    },
-    {
         "id": "ChIJQ9AqXACxKIQRv6dQeunfR_c",
         "name": "Starbucks Avila Camacho",
         "address": "Av. Manuel Ávila Camacho 1337, Mezquitan, 44260 Guadalajara, Jal., Mexico",
@@ -418,13 +411,6 @@
         "address": "Av. de las Américas 916, Ayuntamiento, 44620 Guadalajara, Jal., Mexico",
         "lat": 20.6940112,
         "lng": -103.37289
-    },
-    {
-        "id": "ChIJy0kMJwDJKIQR-vIxKtaVUfk",
-        "name": "El Starbucks de Matatlan",
-        "address": "JAL 106 22, 45435 Matatlán, Jal., Mexico",
-        "lat": 20.7066348,
-        "lng": -103.158326
     },
     {
         "id": "ChIJuT4AeT-pKIQRXV7IjyX-nWA",

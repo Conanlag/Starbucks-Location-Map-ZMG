@@ -1,15 +1,43 @@
-import { Component } from '@angular/core';
-import { GoogleMap } from '@angular/google-maps';
+import { Component, computed } from '@angular/core';
+import { GoogleMap, MapAdvancedMarker } from '@angular/google-maps';
+import { httpResource } from '@angular/common/http';
+
+export interface Store { 
+
+  "id": string;
+  "name": string;
+  "displayName": string;
+  "address": string;
+  "lat": number;
+  "lng": number;
+}
 
 
 
 @Component({
   selector: 'app-map',
-  imports: [GoogleMap],
+  imports: [GoogleMap, MapAdvancedMarker],
   templateUrl: './map.html',
   styleUrl: './map.css',
 })
 export class Map {
+
+  storesResource = httpResource<Store[]>(() => './starbucks_zmg.json');
+
+    stores = computed(() => {
+    const stores = this.storesResource.value();
+
+    if (!stores) return [];
+
+    return stores.map(store => ({
+      ...store,
+      displayName:
+        store.name === 'Starbucks'
+          ? `${store.name} ${store.address.split(',')[0].trim()}`
+          : store.name
+    }));
+  });
+
 
   center: google.maps.LatLngLiteral = {lat: 20.6674465, lng: -103.33896};
   zoom = 12;

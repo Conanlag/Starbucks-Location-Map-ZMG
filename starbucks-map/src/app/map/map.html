@@ -1,8 +1,35 @@
 <!-- google-maps-demo.component.html -->
+<section class="container">
+
+  <div class="sidebar">
+    @for (store of stores(); track store.id) {
+      <div
+        #store
+        class="store"
+      >
+      <h3> {{store.displayName}} </h3>
+      <p> {{ store.lat}} </p>
+      <p> {{ store.lng}} </p>
+      
+      </div>
+    }
+  </div>
+
+
 <google-map
   class="map"
   height="400px"
   width="750px"
   [center]="center"
-  [zoom]="zoom"
-  />
+  [zoom]="zoom">
+
+      @for (store of stores(); track store.id) {
+      <map-advanced-marker 
+      [position]="{
+        lat: store.lat,
+        lng: store.lng
+      }"  />
+    }
+  </google-map>
+
+</section>
