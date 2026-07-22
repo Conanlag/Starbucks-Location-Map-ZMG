@@ -1,5 +1,5 @@
-import { Component, computed, ElementRef, viewChild, viewChildren, signal} from '@angular/core';
-import { GoogleMap, MapAdvancedMarker } from '@angular/google-maps';
+import { Component, computed, ElementRef, viewChild, viewChildren, signal, ChangeDetectionStrategy} from '@angular/core';
+import { GoogleMap, MapAdvancedMarker, MapInfoWindow } from '@angular/google-maps';
 import { httpResource } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 
@@ -18,9 +18,10 @@ export interface Store {
 
 @Component({
   selector: 'app-map',
-  imports: [GoogleMap, MapAdvancedMarker],
+  imports: [GoogleMap, MapAdvancedMarker, MapInfoWindow],
   templateUrl: './map.html',
   styleUrl: './map.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Map {
 
@@ -56,15 +57,53 @@ export class Map {
   selectedStore = signal<Store | null>(null);
 
   private mapReference = viewChild.required<GoogleMap>(GoogleMap)
-  private storesReference = viewChildren<ElementRef<HTMLDivElement>>('stores');
+  private storesReference = viewChildren<ElementRef<HTMLDivElement>>('store');
+    private advancedMarkers= viewChildren<MapAdvancedMarker>(MapAdvancedMarker);
 
-  changeLocation(store: Store) {
+  private infoWindowReference = viewChild.required<MapInfoWindow>(MapInfoWindow);
+
+  changeLocation(store: Store, marker?: MapAdvancedMarker, index?: number) {
+
+    this.infoWindowReference().close();
+
     this.selectedStore.set(store);
     this.mapReference().panTo({ lat: store.lat, lng: store.lng});
 
-    const index = this.storesResource.value()?.findIndex(s=> s.id === store.id );
+    if (index) {
+      console.log(this.advancedMarkers().at(index))
 
-    console.log('index', index);
+    }
+
+    this.infoWindowReference().open(marker ?? this.advancedMarkers().at(index!));
+
+
+    const sindex = this.storesResource.value()?.findIndex(s=> s.id === store.id );
+
+
+    if(sindex !== undefined && sindex >= 0) {
+      const  element = this.storesReference().at(sindex);
+      
+      element?.nativeElement.scrollIntoView({
+        behavior:'smooth',
+        block: 'center',
+
+      })
+    }
+  }
+  getMarkerContent(store: Store) {
+        if (store.id === this.selectedStore()?.id) {
+      const beachFlag =
+        'https://cdn-icons-png.flaticon.com/128/7345/7345830.png';
+      let imgTag = document.createElement('img');
+      imgTag.src = beachFlag;
+      imgTag.width = 40;
+      imgTag.height = 40;
+
+      return imgTag;
+    }
+
+    return null;
+  
   }
 
 }

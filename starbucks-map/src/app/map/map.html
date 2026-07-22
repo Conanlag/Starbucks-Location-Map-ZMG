@@ -2,12 +2,12 @@
 <section class="container">
 
   <div class="sidebar">
-    @for (store of stores(); track store.id) {
+    @for (store of stores(); let index = $index; track store.id) {
       <div
         #store
         class="store"
         [class.active] ="selectedStore()?.id === store.id"
-        (click) = "changeLocation(store)"
+        (click) = "changeLocation(store, undefined, index)"
       >
       <h3> {{store.displayName}} </h3>
       <p> {{ store.lat}} </p>
@@ -26,14 +26,18 @@
 
       @for (store of stores(); track store.id) {
       <map-advanced-marker 
+      #marker="mapAdvancedMarker"
       [position]="{
         lat: store.lat,
         lng: store.lng
       }"  
       [options] = "markerOptions"
-      (mapClick)="changeLocation(store)"
+      (mapClick)="changeLocation(store, marker)"
+      [content]="getMarkerContent(store)"
       />
     }
+      <map-info-window>Info Window content</map-info-window>
+
   </google-map>
 
 </section>
