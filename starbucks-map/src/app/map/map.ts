@@ -68,14 +68,17 @@ export class Map {
 
     this.selectedStore.set(store);
     this.mapReference().panTo({ lat: store.lat, lng: store.lng});
+    const template = `<p>${this.selectedStore()?.displayName}</p>
+                      <p>${this.selectedStore()?.address}</p>
+                      `;
 
-    if (index) {
-      console.log(this.advancedMarkers().at(index))
 
-    }
+    this.infoWindowReference().open(marker ?? this.advancedMarkers().at(index!),
+    false,
+    template,
 
-    this.infoWindowReference().open(marker ?? this.advancedMarkers().at(index!));
-
+  
+  );
 
     const sindex = this.storesResource.value()?.findIndex(s=> s.id === store.id );
 

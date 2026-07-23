@@ -10,9 +10,7 @@
         (click) = "changeLocation(store, undefined, index)"
       >
       <h3> {{store.displayName}} </h3>
-      <p> {{ store.lat}} </p>
-      <p> {{ store.lng}} </p>
-      
+      <p> {{ store.address}} </p>      
       </div>
     }
   </div>
@@ -36,7 +34,7 @@
       [content]="getMarkerContent(store)"
       />
     }
-      <map-info-window>Info Window content</map-info-window>
+      <map-info-window></map-info-window>
 
   </google-map>
 
